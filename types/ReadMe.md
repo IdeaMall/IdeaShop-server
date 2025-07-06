@@ -1,4 +1,4 @@
-# Strapi-PNPM-Docker-ts - Type package
+# IdeaShop-server - Type package
 
 ## Usage
 
@@ -7,7 +7,7 @@
 1. Generate a [PAT][1] with `read:packages` authorization
 2. Run Sign-in command in your terminal, and use PAT as password:
    ```shell
-   npm login --scope=@idea2app --registry=https://npm.pkg.github.com
+   npm login --scope=@ideamall --registry=https://npm.pkg.github.com
    ```
 
 ### 2. Installation
@@ -15,7 +15,7 @@
 ```shell
 npm i pnpm -g
 
-pnpm i @idea2app/strapi-pnpm-docker-ts -D
+pnpm i @ideamall/ideashop-server -D
 ```
 
 [1]: https://github.com/settings/tokens

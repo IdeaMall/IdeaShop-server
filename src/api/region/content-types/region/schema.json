@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regions",
+  "info": {
+    "singularName": "region",
+    "pluralName": "regions",
+    "displayName": "地区",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "level": {
+      "type": "enumeration",
+      "required": true,
+      "default": "city",
+      "enum": ["continent", "country", "province", "city", "district"]
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "videos"]
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "superiorRegion": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::region.region"
+    },
+    "remark": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "light"
+      }
+    }
+  }
+}

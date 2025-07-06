@@ -1,7 +1,7 @@
 {
   "collectionName": "components_location_addresses",
   "info": {
-    "displayName": "Address",
+    "displayName": "地址",
     "icon": "pinMap"
   },
   "options": {},
@@ -24,6 +24,9 @@
       "type": "string"
     },
     "building": {
+      "type": "string"
+    },
+    "floor": {
       "type": "string"
     },
     "room": {

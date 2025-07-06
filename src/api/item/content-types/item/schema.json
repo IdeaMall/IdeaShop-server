@@ -1,0 +1,111 @@
+{
+  "kind": "collectionType",
+  "collectionName": "item",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "商品",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slogan": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "regions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::region.region"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images", "videos"]
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "standard"
+      },
+      "required": true
+    },
+    "includedCosts": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "preset": "light",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA"
+      },
+      "required": true
+    },
+    "excludedCosts": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "light"
+      },
+      "required": true
+    },
+    "guarantee": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "light"
+      },
+      "required": true
+    },
+    "transportation": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "light"
+      },
+      "required": true
+    },
+    "materials": {
+      "type": "customField",
+      "customField": "plugin::ckeditor.CKEditor",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzkxNDg3OTksImp0aSI6ImEyYjZkNmRjLWJkNWYtNDBjZi05ZTgyLTQwMmFhMzIyMmEyZCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCIsIkUyUCIsIkUyVyJdLCJ2YyI6ImZkMGVmZmM4In0.qCaheSM9wcacD9EAY3Mf0XgY68CYnOw05rMzlEFFbx3Plm81nyTScDHmmBhcoYHp7qfKIhCKKnvA4uhy0wnIOA",
+        "preset": "light"
+      },
+      "required": true
+    },
+    "skus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sku.sku",
+      "mappedBy": "item"
+    }
+  }
+}
