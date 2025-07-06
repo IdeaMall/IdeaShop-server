@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "优惠券",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "code": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid",
+      "required": true,
+      "options": {
+        "uuid-format": "^[A-Z0-9]{6}$"
+      }
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
+    },
+    "thresholdPrice": {
+      "type": "decimal",
+      "min": 0
+    },
+    "deductPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "startedAt": {
+      "type": "datetime"
+    },
+    "endedAt": {
+      "type": "datetime"
+    },
+    "issuer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "amount": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "stock": {
+      "type": "integer",
+      "min": 0
+    }
+  }
+}

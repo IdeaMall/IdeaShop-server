@@ -6,7 +6,7 @@
     "description": "",
     "singularName": "user",
     "pluralName": "users",
-    "displayName": "User"
+    "displayName": "用户"
   },
   "options": {
     "draftAndPublish": false
@@ -65,6 +65,9 @@
       "inversedBy": "users",
       "configurable": false
     },
+    "nickName": {
+      "type": "string"
+    },
     "gender": {
       "type": "enumeration",
       "enum": ["female", "male", "other"]
@@ -72,14 +75,28 @@
     "avatar": {
       "type": "string"
     },
+    "idCard": {
+      "type": "string",
+      "minLength": 9,
+      "unique": true
+    },
     "mobilePhone": {
+      "type": "string",
+      "unique": true
+    },
+    "wechatId": {
       "type": "string",
       "unique": true
     },
     "address": {
       "type": "component",
-      "repeatable": false,
-      "component": "location.address"
+      "component": "location.address",
+      "repeatable": false
+    },
+    "contacts": {
+      "type": "component",
+      "component": "user.contact",
+      "repeatable": true
     }
   }
 }

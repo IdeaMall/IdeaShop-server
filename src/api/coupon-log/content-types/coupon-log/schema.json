@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupon_logs",
+  "info": {
+    "singularName": "coupon-log",
+    "pluralName": "coupon-logs",
+    "displayName": "优惠券日志"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "coupon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::coupon.coupon"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "coupons"
+    }
+  }
+}

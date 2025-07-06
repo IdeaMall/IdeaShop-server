@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sku",
+  "info": {
+    "singularName": "sku",
+    "pluralName": "skus",
+    "displayName": "SKU"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item",
+      "inversedBy": "skus"
+    },
+    "startDate": {
+      "type": "date",
+      "required": false
+    },
+    "endDate": {
+      "type": "date",
+      "required": false
+    },
+    "amount": {
+      "type": "integer",
+      "required": true,
+      "default": 1,
+      "min": 1
+    },
+    "unitPrice": {
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    }
+  }
+}

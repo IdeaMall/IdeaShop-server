@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_user_contacts",
+  "info": {
+    "displayName": "联系方式",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "required": true,
+      "enum": ["female", "male", "other"]
+    },
+    "idCard": {
+      "type": "string",
+      "minLength": 9
+    },
+    "mobilePhone": {
+      "type": "string",
+      "minLength": 11,
+      "required": true
+    },
+    "emergency": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# Strapi-PNPM-Docker-ts
+# IdeaShop-server
 
 [Strapi][7] scaffold with [TypeScript][5], [PNPM][6] & [Docker][9], which is made with ❤️ by [idea2app][1].
 

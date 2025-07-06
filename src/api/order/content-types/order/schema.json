@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "订单"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item.item"
+    },
+    "skus": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sku.sku"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coupon-log.coupon-log",
+      "mappedBy": "order"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "paymentId": {
+      "type": "string"
+    },
+    "accountId": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "remark": {
+      "type": "text"
+    }
+  }
+}

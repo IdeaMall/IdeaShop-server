@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recommends",
+  "info": {
+    "singularName": "recommend",
+    "pluralName": "recommends",
+    "displayName": "推荐"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images", "videos"]
+    },
+    "position": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "home-head",
+        "home-body",
+        "home-foot",
+        "user-head",
+        "user-body",
+        "post-head",
+        "post-body"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
