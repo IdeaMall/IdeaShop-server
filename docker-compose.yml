@@ -1,0 +1,57 @@
+version: '3'
+
+networks:
+  idea2app:
+
+services:
+  postgres-server:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
+    volumes:
+      - ./.data:/var/lib/postgresql/data/
+    networks:
+      - idea2app
+    restart: always
+
+  strapi-server:
+    depends_on:
+      - postgres-server
+    image: idea2app/strapi-pnpm-docker-ts
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
+      - NODE_ENV=production
+    volumes:
+      - ./config/sync:/app/config/sync
+    networks:
+      - idea2app
+    ports:
+      - 1337:1337
+    healthcheck:
+      test: ['CMD-SHELL', 'curl -f http://localhost:1337/ || exit 1']
+      interval: 3s
+      retries: 5
+      start_period: 30s
+    labels:
+      - autoheal=true
+    restart: always
+
+  autoheal:
+    image: willfarrell/autoheal:1.2.0
+    networks:
+      - idea2app
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+  caddy:
+    depends_on:
+      - strapi-server
+    image: caddy
+    networks:
+      - idea2app
+    ports:
+      - 80:80
+      - 443:443
+    command: caddy reverse-proxy --from your.domain.com --to strapi-server:1337
